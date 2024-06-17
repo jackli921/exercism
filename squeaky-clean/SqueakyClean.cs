@@ -5,28 +5,25 @@ using System.Text;
 
 public static class Identifier
 {
-    private const string LowerCaseGreekLetters = "αβγδεζηθικλμνξοπρστυφχψω";
-
+    private static bool IsGreekLowerCaseLetter(char c) => (c >= 'α' && c <= 'ω');
     public static string Clean(string identifier)
     {
-        var cleaned = new StringBuilder();
-        
-        for (int i = 0; i < identifier.Length; i++)
+        var stringBuilder = new StringBuilder();
+        var isAfterDash = false;
+
+        foreach (char c in identifier)
         {
-            char c = identifier[i];
-
-            if (LowerCaseGreekLetters.Contains(c))
-                continue;
-
-            if (c == ' ')
-                cleaned.Append("_");
-            else if (char.IsControl(c))
-                cleaned.Append("CTRL");
-            else if (i > 0 && identifier[i - 1] == '-')
-                cleaned.Append(char.ToUpper(c));
-            else if (char.IsLetter(c))
-                cleaned.Append(c);
+            stringBuilder.Append(c switch
+            {
+                _ when IsGreekLowerCaseLetter(c) => default,
+                _ when isAfterDash => char.ToUpperInvariant(c),
+                _ when char.IsWhiteSpace(c) => "_",
+                _ when char.IsControl(c) => "CTRL",
+                _ when char.IsLetter(c) => c,
+                _ => default,
+            });
+            isAfterDash = c.Equals('-');
         }
-        return cleaned.ToString();
+        return stringBuilder.ToString();
     }
 }
