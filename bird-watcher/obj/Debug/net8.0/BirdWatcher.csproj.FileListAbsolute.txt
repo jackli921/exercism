@@ -98,3 +98,4 @@ C:\Users\Jack.li\Exercism\csharp\bird-watcher\obj\Debug\net8.0\refint\BirdWatche
 C:\Users\Jack.li\Exercism\csharp\bird-watcher\obj\Debug\net8.0\BirdWatcher.pdb
 C:\Users\Jack.li\Exercism\csharp\bird-watcher\obj\Debug\net8.0\BirdWatcher.genruntimeconfig.cache
 C:\Users\Jack.li\Exercism\csharp\bird-watcher\obj\Debug\net8.0\ref\BirdWatcher.dll
+C:\Users\Jack.li\Exercism\csharp\bird-watcher\obj\Debug\net8.0\BirdWatcher.sourcelink.json
