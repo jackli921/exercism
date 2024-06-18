@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 public class FacialFeatures
 {
@@ -55,33 +56,27 @@ public class Identity
 
 public class Authenticator
 {
-    private Identity registeredIdentity;
+    private HashSet<Identity> _registeredIdentities = new(); 
+    private static readonly Identity _admin = new Identity("admin@exerc.ism", new FacialFeatures("green", 0.9m));
     public static bool AreSameFace(FacialFeatures faceA, FacialFeatures faceB) => faceA.Equals(faceB);
 
     public bool IsAdmin(Identity identity)
     {
         if (identity is null) return false;
 
-        return identity.Email == "admin@exerc.ism" 
-               && identity.FacialFeatures.PhiltrumWidth == 0.9m
-               && identity.FacialFeatures.EyeColor == "green";
+        return identity.Equals(_admin);
     }
 
     public bool Register(Identity identity)
     {
-        if (registeredIdentity is null)
-        {
-            registeredIdentity = identity;
-            return true;            
-        }
-        if (registeredIdentity.Equals(identity))
+        if (_registeredIdentities.Contains(identity))
         {
             return false;
         }
-        return false;
+        return _registeredIdentities.Add(identity);
     }
 
-    public bool IsRegistered(Identity identity) => this.registeredIdentity.Equals(identity);
+    public bool IsRegistered(Identity identity) => _registeredIdentities.Contains(identity);
 
     public static bool AreSameObject(Identity identityA, Identity identityB) => Object.ReferenceEquals(identityA, identityB);
 }
