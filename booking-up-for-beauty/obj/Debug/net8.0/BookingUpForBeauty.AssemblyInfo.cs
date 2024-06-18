@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookingUpForBeauty")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed52d48ef21d9845bb2d20832d36463c8031ea70")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f43a9bc98fee72750cb4ff9612687c22bd8e846a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookingUpForBeauty")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookingUpForBeauty")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
