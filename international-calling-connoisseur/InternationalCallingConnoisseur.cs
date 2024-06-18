@@ -31,7 +31,7 @@ public static class DialingCodes
 
     public static string GetCountryNameFromDictionary(
         Dictionary<int, string> existingDictionary, int countryCode) =>
-        existingDictionary.ContainsKey(countryCode)? existingDictionary[countryCode] : string.Empty;
+        existingDictionary.GetValueOrDefault(countryCode) ?? string.Empty;
 
     public static bool CheckCodeExists(Dictionary<int, string> existingDictionary, int countryCode) => existingDictionary.ContainsKey(countryCode);
 
@@ -41,12 +41,8 @@ public static class DialingCodes
         if (existingDictionary.ContainsKey(countryCode))
         {
             existingDictionary[countryCode] = countryName;
-            return existingDictionary;
         }
-        else
-        {
-            return existingDictionary;
-        }
+        return existingDictionary;
     }
 
     public static Dictionary<int, string> RemoveCountryFromDictionary(

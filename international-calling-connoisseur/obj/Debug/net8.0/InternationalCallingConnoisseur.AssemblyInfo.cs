@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InternationalCallingConnoisseur")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91e14f4d14f862b2e40c4050bbdbc2de4f487981")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6807d7e075392e1174dd71435e488c69a80012d8")]
 [assembly: System.Reflection.AssemblyProductAttribute("InternationalCallingConnoisseur")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InternationalCallingConnoisseur")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
