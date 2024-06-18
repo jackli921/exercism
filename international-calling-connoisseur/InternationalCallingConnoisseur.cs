@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public static class DialingCodes
 {
@@ -57,16 +58,7 @@ public static class DialingCodes
 
     public static string FindLongestCountryName(Dictionary<int, string> existingDictionary)
     {
-        int longestLengthCountryCode = 0;
-        int longestNameLength = 0;
-        foreach (KeyValuePair<int, string> kvp in existingDictionary)
-        {
-            if (kvp.Value.Length > longestNameLength)
-            {
-                longestNameLength = kvp.Value.Length;
-                longestLengthCountryCode = kvp.Key;
-            }
-        }
-        return longestNameLength == 0 ? String.Empty : existingDictionary[longestLengthCountryCode];
+        var longestPair = existingDictionary.OrderByDescending(kvp => kvp.Value.Length).FirstOrDefault();
+        return longestPair.Value ?? String.Empty;
     }
 }
