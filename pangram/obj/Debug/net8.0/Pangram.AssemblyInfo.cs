@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pangram")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3526c01cf9d7120cc2408b841b8bb321fa46f466")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f208e99fff8a0aa6a00cfa40c935b362ce45bb56")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pangram")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pangram")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
