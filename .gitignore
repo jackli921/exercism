@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# Except for .gitignore
+!.gitignore
+
+# Except for directories
+!*/
+
+# Except for .cs files
+!*.cs
