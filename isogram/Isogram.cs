@@ -7,8 +7,8 @@ public static class Isogram
     {
         /*return word.ToLower().Where(x => char.IsLetter(x)).ToList().Count == 
                    word.ToLower().Where(x => char.IsLetter(x)).Distinct().ToList().Count;*/
-        
-        return word.ToLower().Where(x => char.IsLetter(x)).ToArray().Length ==
-               word.ToLower().Where(x => char.IsLetter(x)).Distinct().ToArray().Length;
+
+        var lowerLetters = word.ToLower().Where(x => char.IsLetter(x)).ToArray(); 
+        return lowerLetters.Length == lowerLetters.Distinct().Count();
     }
 }
