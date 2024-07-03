@@ -12,31 +12,15 @@ public class GradeSchool
 
     }
 
-    public bool Add(string student, int grade)
-    {
-        if (!_students.ContainsKey(student))
-        {
-            _students.Add(student, grade);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    public bool Add(string student, int grade) => _students.TryAdd(student, grade);
 
-    public IEnumerable<string> Roster()
-    {
-        return _students.OrderBy(x => x.Value)
-            .ThenBy(x => x.Key)
-            .Select(x => x.Key);
-    }
+    public IEnumerable<string> Roster() =>
+        _students.OrderBy(s => s.Value)
+            .ThenBy(s => s.Key)
+            .Select(s => s.Key);
 
-    public string[] Grade(int grade)
-    {
-        return _students.Where(x => x.Value == grade)
-                        .Select(x => x.Key)
-                        .OrderBy(x => x)
-                        .ToArray();
-    }
+    public IEnumerable<string> Grade(int grade) =>
+        _students.Where(s => s.Value == grade)
+            .Select(s => s.Key)
+            .OrderBy(s => s);
 }
