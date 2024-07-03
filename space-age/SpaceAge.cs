@@ -2,15 +2,15 @@ using System;
 
 public class SpaceAge
 {
-    public int Seconds { get; init; } 
+    private double _seconds;
     public SpaceAge(int seconds)
     {
-        Seconds = seconds;
+        _seconds = seconds;
     }
 
     public double OnEarth()
     {
-        return Seconds / (60 * 60 * 24 * 365.25);
+        return _seconds / (60 * 60 * 24 * 365.25);
     }
 
     public double OnMercury()
