@@ -4,14 +4,16 @@ using System.Linq;
 
 public enum Classification
 {
-    Perfect,
-    Abundant,
-    Deficient
+    Perfect = 0,
+    Abundant = 1,
+    Deficient = -1
 }
 
 public static class PerfectNumbers
 {
-    public static Classification Classify(int number)
+    public static Classification Classify(int number) =>
+        (Classification)Enumerable.Range(1, number - 1).Where(i => number % i == 0).Sum().CompareTo(number);
+    /*public static Classification Classify(int number)
     {
         // use a for loop, and count from the number itself down to 1
         // if the number is divisible by the current iteration number of i with a remainder of 0, then add that number to the number list
@@ -36,5 +38,5 @@ public static class PerfectNumbers
         if (sum == number) return Classification.Perfect;
         if (sum > number) return Classification.Abundant;
         return Classification.Deficient;
-    }
+    }*/
 }
