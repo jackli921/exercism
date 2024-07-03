@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public class Anagram
@@ -9,16 +10,21 @@ public class Anagram
         _base = baseWord;
     }
 
-    public string[] FindAnagrams(string[] potentialMatches)
+    public string[] FindAnagrams(IEnumerable<string> potentialMatches)
     {
-        return potentialMatches.Where(candidate => candidate.ToLower() != _base.ToLower() && AreAnagrams(candidate, _base)).ToArray();
+        return potentialMatches.Where(AreAnagrams).ToArray();
     }
 
-    public bool AreAnagrams(string candidate, string baseWord)
+    public bool AreAnagrams(string candidate)
     {
-        var sortedLowerCaseCandidate = string.Concat(candidate.ToLower().OrderBy(x => x));
-        var sortedLowerCaseBaseWord = string.Concat(baseWord.ToLower().OrderBy(x => x));
-
-        return sortedLowerCaseCandidate == sortedLowerCaseBaseWord;
+        return SortedLowerCase(candidate) == SortedLowerCase(_base) && IsSelf(candidate);
     }
+
+    public bool IsSelf(string candidate)
+    {
+        return !string.Equals(candidate, _base, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static string SortedLowerCase(string word) => new (word.ToLower().OrderBy(x => x).ToArray());
+
 }
