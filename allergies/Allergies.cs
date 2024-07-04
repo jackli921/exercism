@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 
+[Flags]
 public enum Allergen
 {
     Eggs = 1 << 0,
